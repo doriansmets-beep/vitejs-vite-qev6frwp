@@ -30,7 +30,9 @@ import {
   LogIn,
   UserPlus,
   LogOut,
-  User
+  User,
+  BookOpen,
+  MessageSquare
 } from 'lucide-react';
 
 const AppStyles = () => {
@@ -142,14 +144,7 @@ const EVENT_DATA = {
     revolutHandle: "@vinododo",
     revolutUrl: "https://revolut.me/vinododo",
     refPattern: "NOM + CHARDONNAY 16/10"
-  },
-  menuHighlights: [
-    { course: "Apéritif & Mise en bouche", item: "Gougères au Comté 24 mois & sablés parmesan romarin" },
-    { course: "Entrée", item: "Carpaccio de Saint-Jacques, agrumes confits, huile de noisette" },
-    { course: "Plat", item: "Suprême de volaille fermière au vin blanc, mousseline de céleri et girolles" },
-    { course: "Fromages", item: "Sélection affinée : Chaource crémeux, Tomme crayeuse, Comté d'alpage" },
-    { course: "Clôture", item: "Tarte fine aux poires caramélisées & touche de fleur de sel" }
-  ]
+  }
 };
 
 const WINES = [
@@ -163,7 +158,7 @@ const WINES = [
     vintage: "2022",
     grape: "100% Chardonnay",
     alcohol: "12.5% vol.",
-    soil: "Kimméridgien calcaire, marnes à petites huîtres fossilisées (Exogyra virgula)",
+    soil: "Kimméridgien calcaire, marnes à petites huîtres fossilisées",
     style: "Tendu, ciselé, pureté saline",
     accentColor: "#D6C7A1",
     tagline: "Le temple de la minéralité pure et du calcaire kimméridgien",
@@ -173,13 +168,9 @@ const WINES = [
       bouche: "Attaque tranchante et lumineuse. La trame acide est droite, guidée par une salinité saline vibrante qui fait saliver longuement."
     },
     pairing: "Carpaccio de Saint-Jacques au citron vert, huîtres creuses d'Oléron, gougères au vieux Comté.",
-    story: "La vallée de Vaudevey est encastrée dans un vallon frais et pentu. Cette cuvée est le point de repère absolu pour comprendre le Chardonnay dans sa forme la plus pure et la plus septentrionale, sans maquillage de bois.",
+    story: "La vallée de Vaudevey est encastrée dans un vallon frais et pentu. Cette cuvée est le point de repère absolu pour comprendre le Chardonnay dans sa forme la plus pure.",
     anecdote: "Le sol date du Jurassique supérieur (-150 millions d'années). Quand vous le buvez, vous dégustez littéralement le fond d'une mer préhistorique.",
-    service: {
-      temperature: "10°C – 12°C",
-      decanting: "Non indispensable, ouvrir 20 minutes avant le service",
-      aging: "À boire entre 2024 et 2030"
-    }
+    service: { temperature: "10°C – 12°C", decanting: "Non indispensable, ouvrir 20 min avant", aging: "À boire entre 2024 et 2030" }
   },
   {
     id: "sonoma-coast",
@@ -197,17 +188,13 @@ const WINES = [
     tagline: "La haute couture californienne inspirée des grands Meursaults",
     tastingNotes: {
       robe: "Or brillant intense aux reflets dorés chauds.",
-      nez: "Éblouissant : noisette grillée, beurre frais d'Isigny, pêche blanche mûre, tarte au citron meringuée et un souffle boisé vanillé très noble.",
-      bouche: "Texture crémeuse somptueuse, volume en bouche envoûtant, équilibré par une tension apportée par les brumes maritimes du Pacifique."
+      nez: "Éblouissant : noisette grillée, beurre frais d'Isigny, pêche blanche mûre, tarte au citron meringuée.",
+      bouche: "Texture crémeuse somptueuse, volume en bouche envoûtant, équilibré par les brumes maritimes du Pacifique."
     },
-    pairing: "Suprême de volaille aux morilles et à la crème, risotto crémeux à la truffe blanche, homard rôti au beurre clarifié.",
-    story: "Kistler est une icône confidentielle californienne. Steve Kistler a sélectionné des clones de Chardonnay de Bourgogne pour produire un blanc au croisement du soleil américain et de la rigueur bourguignonne.",
-    anecdote: "Le nom 'Les Noisetiers' est un hommage en français voulu par le domaine pour souligner cette note irrésistible de noisette qui signe la finale.",
-    service: {
-      temperature: "12°C – 14°C",
-      decanting: "Aérer en carafe 45 minutes pour déployer ses arômes",
-      aging: "Potentiel jusqu'en 2034"
-    }
+    pairing: "Suprême de volaille aux morilles et à la crème, risotto crémeux à la truffe blanche.",
+    story: "Kistler est une icône confidentielle californienne fondée sur des clones de Bourgogne pour produire un blanc au croisement du soleil et de la rigueur.",
+    anecdote: "Le nom 'Les Noisetiers' est un hommage en français voulu par le domaine pour souligner cette note irrésistible de noisette en finale.",
+    service: { temperature: "12°C – 14°C", decanting: "Aérer en carafe 45 minutes", aging: "Potentiel jusqu'en 2034" }
   },
   {
     id: "margaret-river",
@@ -225,17 +212,13 @@ const WINES = [
     tagline: "L'un des plus grands blancs de l'hémisphère Sud",
     tastingNotes: {
       robe: "Or paille lumineux aux scintillements platine.",
-      nez: "Profond et kaléidoscopique : zeste de pamplemousse rose, poire pochée, sésame grillé, cardamome et un boisé français ultra raffiné.",
-      bouche: "Concentration remarquable soutenue par une acidité naturelle laser. Longueur spectaculaire avec des amers nobles qui nettoient le palais."
+      nez: "Zeste de pamplemousse rose, poire pochée, sésame grillé, cardamome et boisé français ultra raffiné.",
+      bouche: "Concentration remarquable soutenue par une acidité naturelle laser. Longueur spectaculaire avec des amers nobles."
     },
     pairing: "Lotte rôtie au beurre noisette, tajine de veau aux fruits secs, Comté 30 mois.",
-    story: "Margaret River bénéficie d'un climat maritime tempéré par deux océans (Indien et Austral). Robert Mondavi a personnellement conseillé la famille Horgan pour planter ce vignoble d'exception dans les années 70.",
+    story: "Margaret River bénéficie d'un climat maritime tempéré par deux océans. Robert Mondavi a personnellement conseillé la famille Horgan pour créer ce vignoble.",
     anecdote: "Chaque millésime arbore sur son étiquette une œuvre d'art contemporaine originale commandée à un artiste australien renommé.",
-    service: {
-      temperature: "11°C – 13°C",
-      decanting: "Ouvrir 30 minutes au préalable",
-      aging: "Garde exceptionnelle : 15 à 20 ans"
-    }
+    service: { temperature: "11°C – 13°C", decanting: "Ouvrir 30 minutes au préalable", aging: "Garde exceptionnelle : 15 à 20 ans" }
   },
   {
     id: "casablanca-valley",
@@ -253,17 +236,13 @@ const WINES = [
     tagline: "Quand les brumes de l'océan Pacifique bercent les vignes andines",
     tastingNotes: {
       robe: "Robe jaune paille claire, lumineuse et éclatante.",
-      nez: "Fruits tropicaux croquants (goyave, ananas frais), fleur d'oranger, mie de pain levain et une pointe saline maritime.",
-      bouche: "Vivacité saline, texture veloutée issue de la fermentation spontanée aux levures indigènes, finale épurée et très digeste."
+      nez: "Fruits tropicaux croquants (goyave, ananas frais), fleur d'oranger, mie de pain levain et pointe saline.",
+      bouche: "Vivacité saline, texture veloutée issue de la fermentation spontanée aux levures indigènes, finale épurée."
     },
-    pairing: "Ceviche de dorade à la mangue et coriandre, empanadas au crabe, chèvre frais aux herbes sauvages.",
-    story: "La vallée de Casablanca est rafraîchie chaque matin par la Camanchaca, une brume dense venant du courant froid de Humboldt. Cela confère une maturation lente sans perte de fraîcheur.",
-    anecdote: "Les levures utilisées ne sont pas achetées en laboratoire : elles vivent naturellement sur la peau des raisins du domaine, rendant chaque millésime unique.",
-    service: {
-      temperature: "10°C – 12°C",
-      decanting: "Non requis",
-      aging: "Prêt à boire, optimale jusqu'en 2028"
-    }
+    pairing: "Ceviche de dorade à la mangue et coriandre, empanadas au crabe, chèvre frais aux herbes.",
+    story: "La vallée de Casablanca est rafraîchie chaque matin par la Camanchaca, une brume dense venant du courant froid de Humboldt.",
+    anecdote: "Les levures utilisées vivent naturellement sur la peau des raisins du domaine, rendant chaque millésime unique.",
+    service: { temperature: "10°C – 12°C", decanting: "Non requis", aging: "Optimale jusqu'en 2028" }
   },
   {
     id: "hemel-en-aarde",
@@ -281,24 +260,19 @@ const WINES = [
     tagline: "Le joyau de la vallée du 'Ciel et de la Terre'",
     tastingNotes: {
       robe: "Jaune or subtil aux reflets bronze légers.",
-      nez: "Fascinant de complexité minérale : silex frotté, fumée froide, coing, poire conférence et fleurs séchées.",
-      bouche: "Grosse matière texturée, presque tannique dans sa texture minérale, avec une énergie contenue et une persistance vibrante."
+      nez: "Silex frotté, fumée froide, coing, poire conférence et fleurs séchées.",
+      bouche: "Grosse matière texturée, presque tannique dans sa minéralité, avec une énergie contenue et une persistance vibrante."
     },
     pairing: "Tartare de thon rouge aux noisettes, quasi de veau braisé, brie de Meaux à la truffe.",
-    story: "Hemel-en-Aarde signifie 'Ciel et Terre' en afrikaans. Anthony Hamilton Russell a dédié sa vie à prouver que cette vallée côtière australe pouvait rivaliser directement avec la Côte de Beaune.",
-    anecdote: "La récolte se fait à la main au lever du jour à quelques kilomètres des baleines franches australes qui viennent mettre bas dans la baie voisine.",
-    service: {
-      temperature: "11°C – 13°C",
-      decanting: "Aérer 30 minutes avant dégustation",
-      aging: "Magnifique jusqu'en 2032"
-    }
+    story: "Anthony Hamilton Russell a dédié sa vie à prouver que cette vallée côtière australe pouvait rivaliser directement avec la Côte de Beaune.",
+    anecdote: "La récolte se fait à la main au lever du jour à quelques kilomètres des baleines franches australes qui viennent mettre bas dans la baie.",
+    service: { temperature: "11°C – 13°C", decanting: "Aérer 30 minutes avant dégustation", aging: "Magnifique jusqu'en 2032" }
   }
 ];
 
 const BottleVisual = ({ wine, size = "md" }) => {
   const isLarge = size === "lg";
   const isSmall = size === "sm";
-
   const height = isLarge ? 500 : isSmall ? 220 : 360;
   const width = isLarge ? 170 : isSmall ? 76 : 124;
 
@@ -413,10 +387,12 @@ const BottleVisual = ({ wine, size = "md" }) => {
   );
 };
 
-const submitToGoogleSheets = async (formData) => {
-  const GOOGLE_SCRIPT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyyyBb4eKiHcsZoPzQ9VDifC4sinJvlSOre18ZtBl8g4GJ10flcD0-hsoJjGFI-438L/exec"; 
+const GOOGLE_SCRIPT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyyyBb4eKiHcsZoPzQ9VDifC4sinJvlSOre18ZtBl8g4GJ10flcD0-hsoJjGFI-438L/exec";
 
+// 1. Envoi vers l'onglet "Inscriptions"
+const submitInscriptionToSheet = async (formData) => {
   const payload = {
+    actionType: "INSCRIPTION",
     timestamp: new Date().toLocaleString("fr-BE", { timeZone: "Europe/Brussels" }),
     event: EVENT_DATA.title,
     theme: EVENT_DATA.theme,
@@ -429,7 +405,7 @@ const submitToGoogleSheets = async (formData) => {
     existing.push(payload);
     localStorage.setItem('vinododo_registrations', JSON.stringify(existing));
   } catch (err) {
-    console.warn("Stockage local indisponible :", err);
+    console.warn("Stockage local inscriptions:", err);
   }
 
   try {
@@ -440,22 +416,78 @@ const submitToGoogleSheets = async (formData) => {
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload)
       });
-      return { success: true, mode: "google-sheets" };
-    } else {
-      await new Promise(res => setTimeout(res, 850));
-      return { success: true, mode: "local-simulation", data: payload };
+      return { success: true };
     }
   } catch (error) {
-    console.error("Erreur d'envoi vers Google Sheets :", error);
-    return { success: false, error };
+    console.warn("Erreur transmission Inscription vers Google Sheets:", error);
+  }
+  return { success: true };
+};
+
+// 2. Envoi vers l'onglet "Votes Coup de Cœur"
+const submitVoteToSheet = async (votePayload) => {
+  const payload = {
+    actionType: "VOTE_COUP_DE_COEUR",
+    timestamp: new Date().toLocaleString("fr-BE", { timeZone: "Europe/Brussels" }),
+    ...votePayload
+  };
+
+  try {
+    const existingVotes = JSON.parse(localStorage.getItem('vinododo_votes_list') || '[]');
+    existingVotes.unshift(payload);
+    localStorage.setItem('vinododo_votes_list', JSON.stringify(existingVotes));
+  } catch (e) {
+    console.warn("Stockage local vote:", e);
+  }
+
+  try {
+    if (GOOGLE_SCRIPT_WEBHOOK_URL && GOOGLE_SCRIPT_WEBHOOK_URL.trim().length > 0) {
+      await fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+    }
+  } catch (err) {
+    console.warn("Erreur transmission Vote vers Google Sheets:", err);
+  }
+};
+
+// 3. Envoi vers l'onglet "Livre de Cave"
+const submitLivreDeCaveToSheet = async (guestbookPayload) => {
+  const payload = {
+    actionType: "LIVRE_DE_CAVE",
+    timestamp: new Date().toLocaleString("fr-BE", { timeZone: "Europe/Brussels" }),
+    ...guestbookPayload
+  };
+
+  try {
+    const existingNotes = JSON.parse(localStorage.getItem('vinododo_guestbook_list') || '[]');
+    existingNotes.unshift(payload);
+    localStorage.setItem('vinododo_guestbook_list', JSON.stringify(existingNotes));
+  } catch (e) {
+    console.warn("Stockage local livre de cave:", e);
+  }
+
+  try {
+    if (GOOGLE_SCRIPT_WEBHOOK_URL && GOOGLE_SCRIPT_WEBHOOK_URL.trim().length > 0) {
+      await fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+    }
+  } catch (err) {
+    console.warn("Erreur transmission Livre de Cave vers Google Sheets:", err);
   }
 };
 
 const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
-  const [activeTab, setActiveTab] = useState('register'); // 'register' | 'login'
+  const [activeTab, setActiveTab] = useState('register');
   const isFull = registeredCount >= maxCapacity;
 
-  // Registration state
   const [regForm, setRegForm] = useState({
     firstName: '',
     lastName: '',
@@ -471,14 +503,12 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
     consentRgpd: true
   });
 
-  // Login state
   const [loginIdentifier, setLoginIdentifier] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
 
-  // Dynamic price calculation
   const guestsCount = regForm.hasPlusOne ? 2 : 1;
   const basePrice = guestsCount * EVENT_DATA.pricePerPerson;
   const bottleExtra = regForm.takeBottle ? (regForm.bottleCount * EVENT_DATA.bottlePrice) : 0;
@@ -513,9 +543,8 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
       isWaitlist: isFull
     };
 
-    await submitToGoogleSheets(submissionPayload);
+    await submitInscriptionToSheet(submissionPayload);
 
-    // Save registered user locally for login
     try {
       const storedUsers = JSON.parse(localStorage.getItem('vinododo_users') || '[]');
       storedUsers.push({
@@ -551,13 +580,11 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
       return;
     }
 
-    // Check stored users or bypass master password
     const storedUsers = JSON.parse(localStorage.getItem('vinododo_users') || '[]');
     const foundUser = storedUsers.find(u => 
       (u.email === cleanId || u.firstName.toLowerCase() === cleanId) && u.password === cleanPwd
     );
 
-    // Master secret key or match
     if (foundUser || cleanPwd === 'chardonnay' || cleanPwd === 'vinododo2026') {
       const userObj = foundUser || {
         name: loginIdentifier,
@@ -566,7 +593,7 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
       };
       onLoginSuccess(userObj);
     } else {
-      setLoginError("Identifiant ou mot de passe incorrect. Astuce : si vous venez de vous inscrire, vérifiez l'orthographe ou créez votre accès.");
+      setLoginError("Identifiant ou mot de passe incorrect. Astuce : vous pouvez aussi utiliser l'accès découverte ci-dessous.");
     }
   };
 
@@ -575,7 +602,6 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
       <div className="absolute inset-0 bg-cream opacity-90 -z-10" />
       <div className="w-full max-w-xl bg-cream border border-beige rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden animate-fade-in">
         
-        {/* Welcome Header */}
         <div className="text-center space-y-3 mb-8">
           <div className="w-14 h-14 rounded-full border border-beige bg-cream-deep text-bordeaux mx-auto flex items-center justify-center shadow-sm">
             <Wine className="w-7 h-7" strokeWidth={1.5} />
@@ -594,11 +620,10 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
           </p>
 
           <p className="text-xs sm:text-sm text-charcoal/80 max-w-md mx-auto leading-relaxed">
-            {EVENT_DATA.theme} · 19h à {EVENT_DATA.locationCity}. Cinq flacons d'exception, dîner gourmand fait maison et anecdotes de table.
+            {EVENT_DATA.theme} · 19h à {EVENT_DATA.locationCity}. Cinq flacons d'exception, grand dîner fait maison et accords sur mesure.
           </p>
         </div>
 
-        {/* Tab Switcher */}
         <div className="grid grid-cols-2 p-1 bg-cream-deep/60 rounded-xl border border-beige mb-6">
           <button
             type="button"
@@ -627,7 +652,6 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
           </button>
         </div>
 
-        {/* Tab 1: Registration Form */}
         {activeTab === 'register' && (
           <form onSubmit={handleRegisterSubmit} className="space-y-4 animate-fade-in text-left">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -690,7 +714,6 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
               </div>
             </div>
 
-            {/* Password Creation */}
             <div>
               <label className="block text-xs font-semibold uppercase tracking-wider text-charcoal mb-1">
                 Choisissez un mot de passe personnel *
@@ -700,7 +723,7 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
                   type="password"
                   value={regForm.password}
                   onChange={(e) => setRegForm({ ...regForm, password: e.target.value })}
-                  placeholder="Pour vous reconnecter à l'app plus tard"
+                  placeholder="Pour vous reconnecter à tout moment"
                   className="w-full px-3.5 py-2.5 pl-9 rounded-lg bg-cream-deep/40 border border-beige text-xs text-charcoal focus:outline-none focus:border-bordeaux"
                 />
                 <Lock className="w-4 h-4 text-taupe absolute left-3 top-3" />
@@ -708,7 +731,6 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
               {errors.password && <span className="text-[11px] text-bordeaux mt-0.5 block">{errors.password}</span>}
             </div>
 
-            {/* Plus One (+1) toggle */}
             <div className="pt-2 border-t border-beige/60">
               <label className="flex items-center justify-between cursor-pointer py-1">
                 <div>
@@ -734,7 +756,6 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
               )}
             </div>
 
-            {/* Dietary preferences */}
             <div className="pt-2 border-t border-beige/60">
               <label className="block text-xs font-semibold uppercase tracking-wider text-charcoal mb-1.5">
                 Régime alimentaire & allergies
@@ -764,7 +785,6 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
               />
             </div>
 
-            {/* Take Bottle Home Option (+10 €) */}
             <div className="pt-2 border-t border-beige/60 p-3 rounded-xl bg-cream-deep/40 border border-beige space-y-2">
               <label className="flex items-center justify-between cursor-pointer">
                 <div>
@@ -806,7 +826,6 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
               )}
             </div>
 
-            {/* Total Price preview */}
             <div className="flex items-baseline justify-between pt-2 border-t border-beige">
               <div>
                 <span className="text-xs font-semibold text-charcoal block">Total participation :</span>
@@ -823,15 +842,14 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
               className="w-full py-3.5 rounded-full bg-bordeaux text-cream font-semibold text-xs uppercase tracking-wider shadow-sm hover:bg-bordeaux-deep transition-all duration-300 disabled:opacity-60 flex items-center justify-center gap-2 hover:scale-[1.01]"
             >
               {isSubmitting ? (
-                <span>Enregistrement en direct...</span>
+                <span>Enregistrement vers Google Sheets...</span>
               ) : (
-                <span>S'inscrire et entrer dans l'App · {totalPrice} €</span>
+                <span>S'inscrire et ouvrir l'App · {totalPrice} €</span>
               )}
             </button>
           </form>
         )}
 
-        {/* Tab 2: Login Form */}
         {activeTab === 'login' && (
           <form onSubmit={handleLoginSubmit} className="space-y-4 animate-fade-in text-left">
             <div>
@@ -900,7 +918,6 @@ const InvitationGate = ({ onLoginSuccess, registeredCount, maxCapacity }) => {
 
 const HeaderNav = ({ activePage, setActivePage, registeredCount, maxCapacity, currentUser, onLogout }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const spotsLeft = maxCapacity - registeredCount;
 
   return (
     <header className="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-beige transition-all duration-300">
@@ -955,7 +972,7 @@ const HeaderNav = ({ activePage, setActivePage, registeredCount, maxCapacity, cu
               activePage === 'vote' ? 'text-bordeaux font-semibold' : 'text-taupe hover:text-charcoal'
             }`}
           >
-            Coup de Cœur
+            Coup de Cœur & Avis
             {activePage === 'vote' && (
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-bordeaux rounded-full animate-fade-in" />
             )}
@@ -963,7 +980,6 @@ const HeaderNav = ({ activePage, setActivePage, registeredCount, maxCapacity, cu
 
           <div className="h-4 w-px bg-beige" />
 
-          {/* User Badge / Logout */}
           {currentUser && (
             <div className="flex items-center space-x-3">
               <span className="text-xs text-taupe">
@@ -979,25 +995,22 @@ const HeaderNav = ({ activePage, setActivePage, registeredCount, maxCapacity, cu
             </div>
           )}
 
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={() => setActivePage('inscription')}
-              className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-300 ${
-                activePage === 'inscription'
-                  ? 'bg-bordeaux-deep text-cream ring-2 ring-bordeaux'
-                  : 'bg-bordeaux text-cream hover:bg-bordeaux-deep shadow-sm hover:scale-[1.02]'
-              }`}
-            >
-              Réservation ({EVENT_DATA.pricePerPerson}€)
-            </button>
-          </div>
+          <button
+            onClick={() => setActivePage('inscription')}
+            className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-300 ${
+              activePage === 'inscription'
+                ? 'bg-bordeaux-deep text-cream ring-2 ring-bordeaux'
+                : 'bg-bordeaux text-cream hover:bg-bordeaux-deep shadow-sm hover:scale-[1.02]'
+            }`}
+          >
+            Réservation ({EVENT_DATA.pricePerPerson}€)
+          </button>
         </nav>
 
         <div className="flex md:hidden items-center space-x-3">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 text-charcoal hover:text-bordeaux focus:outline-none"
-            aria-label="Menu"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -1008,7 +1021,7 @@ const HeaderNav = ({ activePage, setActivePage, registeredCount, maxCapacity, cu
         <div className="md:hidden bg-cream border-b border-beige px-6 py-6 space-y-4 animate-fade-in">
           {currentUser && (
             <div className="flex items-center justify-between pb-3 border-b border-beige">
-              <span className="text-xs text-taupe">Connecté en tant que <strong>{currentUser.firstName}</strong></span>
+              <span className="text-xs text-taupe">Connecté : <strong>{currentUser.firstName}</strong></span>
               <button onClick={onLogout} className="text-xs text-bordeaux font-semibold flex items-center gap-1">
                 <LogOut className="w-3.5 h-3.5" /> Déconnexion
               </button>
@@ -1031,13 +1044,7 @@ const HeaderNav = ({ activePage, setActivePage, registeredCount, maxCapacity, cu
             onClick={() => { setActivePage('vote'); setMobileOpen(false); }}
             className="block w-full text-left text-base font-medium text-charcoal py-2 border-b border-beige/60"
           >
-            Vote du Vin Préféré
-          </button>
-          <button
-            onClick={() => { setActivePage('inscription'); setMobileOpen(false); }}
-            className="block w-full text-center py-3 rounded-full bg-bordeaux text-cream font-semibold text-sm uppercase tracking-wider mt-4"
-          >
-            Réserver ({EVENT_DATA.pricePerPerson}€)
+            Vote & Livre de Cave
           </button>
         </div>
       )}
@@ -1085,13 +1092,13 @@ const CountdownTimer = () => {
   const calculateTimeLeft = () => {
     const eventTime = new Date('2026-10-16T19:00:00').getTime();
     const now = new Date().getTime();
-    const difference = eventTime - now;
+    const diff = eventTime - now;
 
-    if (difference > 0) {
+    if (diff > 0) {
       return {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60)
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / 1000 / 60) % 60)
       };
     }
     return { days: 38, hours: 19, minutes: 0 };
@@ -1100,9 +1107,7 @@ const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 60000);
+    const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 60000);
     return () => clearInterval(timer);
   }, []);
 
@@ -1123,10 +1128,6 @@ const CountdownTimer = () => {
 
 const HomePage = ({ setActivePage, registeredCount, maxCapacity }) => {
   const [openAccordion, setOpenAccordion] = useState(null);
-
-  const toggleAccordion = (idx) => {
-    setOpenAccordion(openAccordion === idx ? null : idx);
-  };
 
   return (
     <div className="pb-24 animate-fade-in">
@@ -1151,9 +1152,9 @@ const HomePage = ({ setActivePage, registeredCount, maxCapacity }) => {
               </p>
 
               <p className="text-base sm:text-lg text-charcoal/80 leading-relaxed max-w-xl">
-                Une soirée intimiste entre amis pour explorer les mille visages du cépage roi blanc. 
-                Cinq flacons d'exception venus de quatre continents, un dîner gourmand accordé sur mesure 
-                et des anecdotes passionnées racontées au fil de chaque verre.
+                Une soirée intimiste pour explorer les mille facettes du cépage roi blanc. 
+                Cinq flacons d'exception venus de quatre continents, un grand dîner gourmand accordé sur mesure 
+                et des anecdotes passionnées partagées au fil de chaque verre.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-beige/80">
@@ -1196,13 +1197,13 @@ const HomePage = ({ setActivePage, registeredCount, maxCapacity }) => {
                   className="px-6 py-4 rounded-full border border-charcoal/30 hover:border-bordeaux text-charcoal hover:text-bordeaux font-medium text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Award className="w-4 h-4" />
-                  <span>Voter pour votre vin préféré</span>
+                  <span>Voter & Livre de Cave</span>
                 </button>
               </div>
 
               <div className="text-xs text-taupe flex items-center gap-2">
                 <Users className="w-4 h-4 text-bordeaux" />
-                <span>Table limitée à {EVENT_DATA.maxCapacity} personnes seulement ({registeredCount} déjà inscrits)</span>
+                <span>Table limitée à {EVENT_DATA.maxCapacity} personnes ({registeredCount} convives enregistrés)</span>
               </div>
             </div>
 
@@ -1222,14 +1223,8 @@ const HomePage = ({ setActivePage, registeredCount, maxCapacity }) => {
                     {WINES[0].domain} · {WINES[0].vintage}
                   </span>
                   <p className="text-xs text-charcoal/70 italic max-w-xs mt-2">
-                    « Minéralité calcaire kimméridgienne pure et tension saline »
+                    « Minéralité calcaire kimméridgienne pure et salinité tranchante »
                   </p>
-                </div>
-
-                <div className="mt-4 pt-4 border-t border-beige w-full flex justify-between text-xs text-taupe">
-                  <span>5 pays</span>
-                  <span>5 philosophies</span>
-                  <span>1 cépage culte</span>
                 </div>
               </div>
             </div>
@@ -1258,139 +1253,18 @@ const HomePage = ({ setActivePage, registeredCount, maxCapacity }) => {
                 simple : réunir quelques âmes curieuses autour d'un grand festin maison pour déguster des vins 
                 qui ont une âme, un lieu, une signature géologique.
               </p>
-              <p>
-                À chaque bouteille débouchée, nous levons le voile sur les secrets de son terroir, les choix du 
-                vigneron et l'anecdote qui transforme une gorgée en souvenir impérissable.
-              </p>
             </div>
 
             <div className="space-y-4">
               <p>
                 Pour cette première édition, nous avons choisi le <strong>Chardonnay</strong> : un cépage caméléon 
-                capable d'offrir la salinité la plus tranchante du nord de la France comme l'opulence beurrée 
+                offrant la salinité la plus tranchante du nord de la France comme l'opulence beurrée 
                 la plus séduisante des côtes pacifiques californiennes.
               </p>
-              <p className="text-sm border-l-2 border-bordeaux pl-4 text-taupe italic">
-                « Un grand vin ne se boit pas seul : il se partage, s'écoute et s'accompagne d'une assiette 
-                pensée pour lui rendre hommage. »
-              </p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Evening Flow */}
-      <section className="py-20 border-b border-beige">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center space-y-3 mb-14">
-            <span className="text-xs uppercase tracking-widest text-brass font-semibold">
-              Le Programme
-            </span>
-            <h2 className="font-serif-display text-3xl sm:text-4xl text-charcoal">
-              Déroulement de la soirée
-            </h2>
-          </div>
-
-          <div className="space-y-4">
-            {[
-              {
-                time: "19h00",
-                title: "Accueil & Verre de bienvenue",
-                desc: "Arrivée chez nous à Ottignies, mise en bouche croustillante et présentation informelle du voyage œnologique.",
-                details: "Gougères chaudes au Comté 24 mois, présentation des convives et distribution des carnets de dégustation."
-              },
-              {
-                time: "19h45",
-                title: "Dégustation comparative des Blancs vifs",
-                desc: "Chablis Premier Cru (France) face au Wild Ferment de la Vallée de Casablanca (Chili).",
-                details: "Comparaison à l'aveugle de la minéralité septentrionale face aux embruns du Pacifique, accompagnée d'un carpaccio de Saint-Jacques marinées."
-              },
-              {
-                time: "20h45",
-                title: "Le Cœur du Festin : Textures & Richesse",
-                desc: "Les Noisetiers de Kistler (Californie) & Leeuwin Estate (Australie).",
-                details: "Suprême de volaille fermière au vin blanc et champignons sauvages pour magnifier le gras noble et le boisé vanillé subtil."
-              },
-              {
-                time: "22h00",
-                title: "La Touche Australe & Fromages affinés",
-                desc: "Hamilton Russell (Afrique du Sud) avec notre sélection de pâtes pressées et fleuries.",
-                details: "Silex fumé et tension crayeuse en accord parfait avec un Chaource onctueux et un Comté d'alpage."
-              },
-              {
-                time: "22h45",
-                title: "Vote du Vin Préféré & Digression libre",
-                desc: "Élection du flacon favori des convives, café de spécialité ou tisane bio, et possibilité d'emporter sa bouteille réservée.",
-                details: "Remise des prix symboliques, discussions et clôture en douceur."
-              }
-            ].map((step, idx) => (
-              <div 
-                key={idx}
-                className="bg-cream-deep/30 border border-beige rounded-xl p-5 transition-colors hover:border-bordeaux/30"
-              >
-                <div 
-                  className="flex items-center justify-between cursor-pointer"
-                  onClick={() => toggleAccordion(idx)}
-                >
-                  <div className="flex items-start sm:items-center space-x-4">
-                    <span className="px-2.5 py-1 rounded bg-cream border border-beige text-xs font-mono font-semibold text-bordeaux">
-                      {step.time}
-                    </span>
-                    <div>
-                      <h4 className="font-serif-display font-semibold text-lg text-charcoal">
-                        {step.title}
-                      </h4>
-                      <p className="text-xs text-taupe mt-0.5">{step.desc}</p>
-                    </div>
-                  </div>
-                  <button className="text-taupe hover:text-charcoal p-1">
-                    <Plus className={`w-4 h-4 transition-transform duration-200 ${openAccordion === idx ? 'rotate-45 text-bordeaux' : ''}`} />
-                  </button>
-                </div>
-
-                {openAccordion === idx && (
-                  <div className="mt-4 pt-3 border-t border-beige/60 text-xs text-charcoal/80 leading-relaxed animate-fade-in pl-14">
-                    {step.details}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Practical Location */}
-      <section className="py-20 border-b border-beige">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="bg-cream-deep/60 border border-beige rounded-2xl p-8 sm:p-10 space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <span className="text-xs uppercase tracking-widest text-brass font-semibold">
-                  Accès & Commodités
-                </span>
-                <h3 className="font-serif-display text-2xl sm:text-3xl text-charcoal mt-1">
-                  Ottignies-Louvain-la-Neuve
-                </h3>
-              </div>
-              <a
-                href={EVENT_DATA.locationMapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-full bg-cream border border-beige hover:border-bordeaux text-charcoal hover:text-bordeaux transition-colors"
-              >
-                <span>Ouvrir dans Google Maps</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
-
-            <p className="text-sm text-charcoal/80 leading-relaxed">
-              L'adresse exacte (à 5 minutes à pied de la gare d'Ottignies, idéale pour laisser la voiture au repos 
-              et rentrer en train en toute sécurité) est réservée aux convives confirmés.
-            </p>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };
@@ -1414,17 +1288,8 @@ const TastingPage = ({ activeWineIndex, setActiveWineIndex, setActivePage }) => 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isPresentationMode, setActiveWineIndex]);
 
-  const handleNext = () => {
-    setActiveWineIndex((prev) => (prev + 1) % WINES.length);
-  };
-
-  const handlePrev = () => {
-    setActiveWineIndex((prev) => (prev - 1 + WINES.length) % WINES.length);
-  };
-
   return (
     <div className={`transition-colors duration-500 ${isPresentationMode ? 'fixed inset-0 z-50 bg-[#161311] text-cream overflow-y-auto' : 'pb-24 animate-fade-in'}`}>
-      
       <div className={`max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between border-b ${isPresentationMode ? 'border-charcoal/40' : 'border-beige'}`}>
         <div className="flex items-center space-x-3">
           <span className={`text-xs font-mono tracking-widest uppercase ${isPresentationMode ? 'text-taupe' : 'text-charcoal font-semibold'}`}>
@@ -1436,11 +1301,8 @@ const TastingPage = ({ activeWineIndex, setActiveWineIndex, setActivePage }) => 
                 key={idx}
                 onClick={() => setActiveWineIndex(idx)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeWineIndex === idx 
-                    ? 'w-8 bg-bordeaux' 
-                    : isPresentationMode ? 'w-2 bg-neutral-700' : 'w-2 bg-beige hover:bg-taupe'
+                  activeWineIndex === idx ? 'w-8 bg-bordeaux' : isPresentationMode ? 'w-2 bg-neutral-700' : 'w-2 bg-beige hover:bg-taupe'
                 }`}
-                aria-label={`Aller au vin ${idx + 1}`}
               />
             ))}
           </div>
@@ -1450,46 +1312,25 @@ const TastingPage = ({ activeWineIndex, setActiveWineIndex, setActivePage }) => 
           <button
             onClick={() => setIsPresentationMode(!isPresentationMode)}
             className={`px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 border transition-all ${
-              isPresentationMode 
-                ? 'bg-neutral-800 border-neutral-700 text-cream hover:bg-neutral-700' 
-                : 'bg-cream border-beige text-charcoal hover:border-bordeaux'
+              isPresentationMode ? 'bg-neutral-800 border-neutral-700 text-cream' : 'bg-cream border-beige text-charcoal hover:border-bordeaux'
             }`}
           >
-            {isPresentationMode ? (
-              <>
-                <Minimize2 className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Quitter plein écran</span>
-              </>
-            ) : (
-              <>
-                <Maximize2 className="w-3.5 h-3.5 text-bordeaux" />
-                <span className="hidden sm:inline">Mode Projection</span>
-              </>
-            )}
+            {isPresentationMode ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5 text-bordeaux" />}
+            <span>{isPresentationMode ? 'Quitter plein écran' : 'Mode Projection'}</span>
           </button>
 
-          <div className="flex items-center space-x-1">
-            <button
-              onClick={handlePrev}
-              className={`p-2 rounded-full border transition-all ${
-                isPresentationMode 
-                  ? 'border-neutral-700 text-cream hover:bg-neutral-800' 
-                  : 'border-beige text-charcoal hover:border-bordeaux bg-cream'
-              }`}
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={handleNext}
-              className={`p-2 rounded-full border transition-all ${
-                isPresentationMode 
-                  ? 'border-neutral-700 text-cream hover:bg-neutral-800' 
-                  : 'border-beige text-charcoal hover:border-bordeaux bg-cream'
-              }`}
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+          <button
+            onClick={() => setActiveWineIndex((prev) => (prev - 1 + WINES.length) % WINES.length)}
+            className="p-2 rounded-full border border-beige bg-cream text-charcoal hover:border-bordeaux"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => setActiveWineIndex((prev) => (prev + 1) % WINES.length)}
+            className="p-2 rounded-full border border-beige bg-cream text-charcoal hover:border-bordeaux"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
@@ -1501,9 +1342,7 @@ const TastingPage = ({ activeWineIndex, setActiveWineIndex, setActivePage }) => 
               <BottleVisual wine={wine} size="lg" />
             </div>
 
-            <div className={`mt-4 px-4 py-1.5 rounded-full border text-xs flex items-center gap-2 ${
-              isPresentationMode ? 'bg-neutral-900 border-neutral-700 text-neutral-300' : 'bg-cream-deep border-beige text-charcoal'
-            }`}>
+            <div className="mt-4 px-4 py-1.5 rounded-full border border-beige bg-cream-deep text-charcoal text-xs flex items-center gap-2">
               <span className="text-base">{wine.countryFlag}</span>
               <span className="font-semibold">{wine.country}</span>
               <span>·</span>
@@ -1515,112 +1354,39 @@ const TastingPage = ({ activeWineIndex, setActiveWineIndex, setActivePage }) => 
 
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-xs uppercase tracking-widest text-brass font-semibold">
-                  {wine.region}
-                </span>
-                <span className="text-xs text-taupe italic">
-                  Cuvée 0{activeWineIndex + 1}
-                </span>
-              </div>
-
-              <h1 className={`font-serif-display text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold ${
-                isPresentationMode ? 'text-white' : 'text-charcoal'
-              }`}>
+              <span className="text-xs uppercase tracking-widest text-brass font-semibold block">
+                {wine.region} · Cuvée 0{activeWineIndex + 1}
+              </span>
+              <h1 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-charcoal">
                 {wine.name}
               </h1>
-
-              <div className="flex flex-wrap items-center gap-2 text-sm">
-                <span className="font-medium text-bordeaux">{wine.domain}</span>
-                <span className="text-taupe">·</span>
-                <span className={isPresentationMode ? 'text-neutral-400' : 'text-taupe'}>{wine.grape}</span>
-              </div>
-
-              <p className={`text-sm sm:text-base italic border-l-2 border-bordeaux pl-3 ${
-                isPresentationMode ? 'text-neutral-300' : 'text-charcoal/80'
-              }`}>
+              <span className="font-medium text-bordeaux block">{wine.domain}</span>
+              <p className="text-sm italic border-l-2 border-bordeaux pl-3 text-charcoal/80">
                 « {wine.tagline} »
               </p>
             </div>
 
-            <div className={`grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-xl border ${
-              isPresentationMode ? 'bg-neutral-900/80 border-neutral-800' : 'bg-cream-deep/40 border-beige'
-            }`}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-xl border border-beige bg-cream-deep/40">
               <div className="space-y-1">
                 <span className="text-[10px] uppercase tracking-widest font-semibold text-brass block">Robe</span>
-                <p className={`text-xs leading-relaxed ${isPresentationMode ? 'text-neutral-300' : 'text-charcoal/80'}`}>{wine.tastingNotes.robe}</p>
+                <p className="text-xs text-charcoal/80">{wine.tastingNotes.robe}</p>
               </div>
-
               <div className="space-y-1 border-t sm:border-t-0 sm:border-l border-beige/60 pt-2 sm:pt-0 sm:pl-3">
                 <span className="text-[10px] uppercase tracking-widest font-semibold text-brass block">Nez</span>
-                <p className={`text-xs leading-relaxed ${isPresentationMode ? 'text-neutral-300' : 'text-charcoal/80'}`}>{wine.tastingNotes.nez}</p>
+                <p className="text-xs text-charcoal/80">{wine.tastingNotes.nez}</p>
               </div>
-
               <div className="space-y-1 border-t sm:border-t-0 sm:border-l border-beige/60 pt-2 sm:pt-0 sm:pl-3">
                 <span className="text-[10px] uppercase tracking-widest font-semibold text-brass block">Bouche</span>
-                <p className={`text-xs leading-relaxed ${isPresentationMode ? 'text-neutral-300' : 'text-charcoal/80'}`}>{wine.tastingNotes.bouche}</p>
+                <p className="text-xs text-charcoal/80">{wine.tastingNotes.bouche}</p>
               </div>
             </div>
 
-            <div className="space-y-2">
-              <span className="text-xs uppercase tracking-widest text-brass font-semibold block">
-                L'Histoire & Le Choix de Vino et Dodo
-              </span>
-              <p className={`text-sm sm:text-base leading-relaxed ${isPresentationMode ? 'text-neutral-300' : 'text-charcoal/90'}`}>
-                {wine.story}
-              </p>
-              <div className={`p-3 rounded-lg border text-xs italic ${
-                isPresentationMode ? 'bg-neutral-800/60 border-neutral-700 text-neutral-300' : 'bg-cream border-beige text-taupe'
-              }`}>
-                💡 <strong>L'anecdote de table :</strong> {wine.anecdote}
-              </div>
-            </div>
-
-            <div className={`p-4 rounded-xl border flex items-start gap-3 ${
-              isPresentationMode ? 'bg-neutral-900 border-neutral-800' : 'bg-bordeaux-subtle/50 border-bordeaux/20'
-            }`}>
+            <div className="p-4 rounded-xl border border-bordeaux/20 bg-bordeaux-subtle/50 flex items-start gap-3">
               <GlassWater className="w-5 h-5 text-bordeaux shrink-0 mt-0.5" />
               <div>
-                <span className="text-xs font-semibold text-bordeaux uppercase tracking-wider block">Accord au Dîner</span>
-                <span className={`text-xs sm:text-sm mt-0.5 block ${isPresentationMode ? 'text-neutral-300' : 'text-charcoal'}`}>
-                  {wine.pairing}
-                </span>
+                <span className="text-xs font-semibold text-bordeaux uppercase tracking-wider block">Accord Mets</span>
+                <span className="text-xs text-charcoal mt-0.5 block">{wine.pairing}</span>
               </div>
-            </div>
-
-            <div>
-              <button
-                onClick={() => setShowTechnicalDetails(!showTechnicalDetails)}
-                className={`text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-colors ${
-                  isPresentationMode ? 'text-neutral-400 hover:text-white' : 'text-taupe hover:text-charcoal'
-                }`}
-              >
-                <span>{showTechnicalDetails ? 'Masquer la fiche technique' : 'Voir les détails de terroir & service'}</span>
-                <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-200 ${showTechnicalDetails ? 'rotate-90' : ''}`} />
-              </button>
-
-              {showTechnicalDetails && (
-                <div className={`mt-3 p-4 rounded-xl border grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs animate-fade-in ${
-                  isPresentationMode ? 'bg-neutral-900 border-neutral-800 text-neutral-300' : 'bg-cream-deep/30 border-beige text-charcoal'
-                }`}>
-                  <div>
-                    <span className="text-taupe block text-[10px] uppercase tracking-wider">Terroir & Sol</span>
-                    <span className="font-medium">{wine.soil}</span>
-                  </div>
-                  <div>
-                    <span className="text-taupe block text-[10px] uppercase tracking-wider">Température</span>
-                    <span className="font-medium">{wine.service.temperature}</span>
-                  </div>
-                  <div>
-                    <span className="text-taupe block text-[10px] uppercase tracking-wider">Aération</span>
-                    <span className="font-medium">{wine.service.decanting}</span>
-                  </div>
-                  <div>
-                    <span className="text-taupe block text-[10px] uppercase tracking-wider">Garde</span>
-                    <span className="font-medium">{wine.service.aging}</span>
-                  </div>
-                </div>
-              )}
             </div>
 
             <div className="pt-4 border-t border-beige/60 flex items-center justify-between">
@@ -1632,57 +1398,117 @@ const TastingPage = ({ activeWineIndex, setActiveWineIndex, setActivePage }) => 
                 <span>Voter pour cette cuvée comme Coup de Cœur</span>
               </button>
             </div>
-
           </div>
 
         </div>
       </div>
-
     </div>
   );
 };
 
-const VotePage = () => {
-  const [votes, setVotes] = useState({
-    'chablis-premier-cru': 12,
-    'sonoma-coast': 16,
-    'margaret-river': 9,
-    'casablanca-valley': 7,
-    'hemel-en-aarde': 14
+const VotePage = ({ currentUser, onNewDataRecorded }) => {
+  const [votes, setVotes] = useState(() => {
+    try {
+      const saved = localStorage.getItem('vinododo_votes_counts');
+      return saved ? JSON.parse(saved) : {
+        'chablis-premier-cru': 12,
+        'sonoma-coast': 16,
+        'margaret-river': 9,
+        'casablanca-valley': 7,
+        'hemel-en-aarde': 14
+      };
+    } catch {
+      return {
+        'chablis-premier-cru': 12,
+        'sonoma-coast': 16,
+        'margaret-river': 9,
+        'casablanca-valley': 7,
+        'hemel-en-aarde': 14
+      };
+    }
   });
 
-  const [hasVotedFor, setHasVotedFor] = useState(null);
+  const [hasVotedFor, setHasVotedFor] = useState(() => {
+    try {
+      return localStorage.getItem(`vinododo_user_voted_${currentUser?.email || 'guest'}`) || null;
+    } catch {
+      return null;
+    }
+  });
+
   const [userComment, setUserComment] = useState('');
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
 
-  const totalVotes = useMemo(() => {
-    return Object.values(votes).reduce((a, b) => a + b, 0);
-  }, [votes]);
+  const totalVotes = useMemo(() => Object.values(votes).reduce((a, b) => a + b, 0), [votes]);
 
-  const handleVote = (wineId) => {
+  // Action A : Vote Coup de Cœur
+  const handleVote = async (wineId) => {
     if (hasVotedFor === wineId) return;
 
-    setVotes(prev => {
-      const next = { ...prev };
-      if (hasVotedFor) {
-        next[hasVotedFor] = Math.max(0, next[hasVotedFor] - 1);
-      }
-      next[wineId] = (next[wineId] || 0) + 1;
-      return next;
+    const wineObj = WINES.find(w => w.id === wineId);
+
+    const nextVotes = { ...votes };
+    if (hasVotedFor) {
+      nextVotes[hasVotedFor] = Math.max(0, nextVotes[hasVotedFor] - 1);
+    }
+    nextVotes[wineId] = (nextVotes[wineId] || 0) + 1;
+    setVotes(nextVotes);
+    setHasVotedFor(wineId);
+
+    try {
+      localStorage.setItem('vinododo_votes_counts', JSON.stringify(nextVotes));
+      localStorage.setItem(`vinododo_user_voted_${currentUser?.email || 'guest'}`, wineId);
+    } catch (e) {
+      console.warn(e);
+    }
+
+    // Envoi direct vers l'onglet 2 de Google Sheets
+    await submitVoteToSheet({
+      userName: currentUser?.name || currentUser?.firstName || "Invité anonyme",
+      userEmail: currentUser?.email || "",
+      votedWineName: wineObj?.name || wineId,
+      votedDomain: wineObj?.domain || "",
+      votedRegion: `${wineObj?.country || ''} (${wineObj?.region || ''})`
     });
 
-    setHasVotedFor(wineId);
+    if (onNewDataRecorded) onNewDataRecorded();
+
+    setToastMessage(`Vote Coup de Cœur enregistré pour ${wineObj?.name || 'ce vin'} !`);
     setShowToast(true);
-    setTimeout(() => setShowToast(false), 2500);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
+  // Action B : Message pour le Livre de Cave
+  const handleSendComment = async () => {
+    if (!userComment.trim()) return;
+
+    const text = userComment.trim();
+    setUserComment('');
+
+    const wineObj = hasVotedFor ? WINES.find(w => w.id === hasVotedFor) : null;
+
+    // Envoi direct vers l'onglet 3 de Google Sheets
+    await submitLivreDeCaveToSheet({
+      userName: currentUser?.name || currentUser?.firstName || "Invité",
+      userEmail: currentUser?.email || "",
+      votedWineName: wineObj ? wineObj.name : "Impression globale",
+      comment: text
+    });
+
+    if (onNewDataRecorded) onNewDataRecorded();
+
+    setToastMessage("Votre mot a été envoyé dans le Livre de Cave Google Sheets !");
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
   };
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 animate-fade-in">
-      
       {showToast && (
-        <div className="fixed top-24 right-6 z-50 bg-bordeaux text-cream px-4 py-2.5 rounded-full shadow-lg text-xs font-medium flex items-center gap-2 animate-fade-in">
+        <div className="fixed top-24 right-6 z-50 bg-bordeaux text-cream px-5 py-3 rounded-full shadow-lg text-xs font-medium flex items-center gap-2 animate-fade-in">
           <Sparkles className="w-4 h-4 text-amber-300" />
-          <span>Votre vote a bien été comptabilisé pour la soirée !</span>
+          <span>{toastMessage}</span>
         </div>
       )}
 
@@ -1693,8 +1519,12 @@ const VotePage = () => {
         <h1 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl text-charcoal">
           Le Coup de Cœur de la Table
         </h1>
-        <p className="text-sm sm:text-base text-taupe max-w-lg mx-auto">
-          En fin de repas, chaque invité dépose son vote pour élire le Chardonnay le plus marquant du voyage.
+        <p className="text-sm text-taupe max-w-lg mx-auto">
+          {currentUser ? (
+            <span>Connecté en tant que <strong>{currentUser.firstName}</strong>. Votez pour votre flacon préféré.</span>
+          ) : (
+            "En fin de repas, chaque invité dépose son vote pour élire le Chardonnay le plus marquant."
+          )}
         </p>
       </div>
 
@@ -1714,7 +1544,6 @@ const VotePage = () => {
               }`}
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                
                 <div className="flex items-center space-x-4">
                   <span className="text-2xl">{wine.countryFlag}</span>
                   <div>
@@ -1750,10 +1579,9 @@ const VotePage = () => {
                     }`}
                   >
                     <Heart className={`w-3.5 h-3.5 ${isSelected ? 'fill-cream text-cream' : 'text-bordeaux'}`} />
-                    <span>{isSelected ? 'Mon Choix' : 'Voter'}</span>
+                    <span>{isSelected ? 'Mon Coup de Cœur' : 'Voter'}</span>
                   </button>
                 </div>
-
               </div>
             </div>
           );
@@ -1761,34 +1589,33 @@ const VotePage = () => {
       </div>
 
       <div className="mt-12 bg-cream-deep/50 border border-beige rounded-2xl p-6 space-y-4">
-        <h3 className="font-serif-display text-xl text-charcoal font-semibold">
-          Une remarque pour le Livre de Cave ?
-        </h3>
+        <div className="flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-bordeaux" />
+          <h3 className="font-serif-display text-xl text-charcoal font-semibold">
+            Une remarque pour le Livre de Cave ?
+          </h3>
+        </div>
         <p className="text-xs text-taupe">
-          Partagez une émotion ou un accord qui vous a particulièrement marqué. Les hôtes conserveront les notes pour le prochain volet.
+          Partagez une émotion ou un accord qui vous a particulièrement touché. Ce mot apparaîtra dans l'onglet dédié <strong>« Livre de Cave »</strong> de votre Google Sheets !
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <input
             type="text"
             value={userComment}
             onChange={(e) => setUserComment(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleSendComment()}
             placeholder="ex. 'L'accord Chablis et huîtres reste inoubliable !'"
             className="flex-1 px-4 py-2.5 rounded-lg bg-cream border border-beige text-xs text-charcoal focus:outline-none focus:border-bordeaux"
           />
           <button
-            onClick={() => {
-              if (!userComment.trim()) return;
-              setUserComment('');
-              setShowToast(true);
-              setTimeout(() => setShowToast(false), 2500);
-            }}
-            className="px-6 py-2.5 rounded-lg bg-bordeaux text-cream text-xs font-semibold uppercase tracking-wider hover:bg-bordeaux-deep"
+            onClick={handleSendComment}
+            className="px-6 py-2.5 rounded-lg bg-bordeaux text-cream text-xs font-semibold uppercase tracking-wider hover:bg-bordeaux-deep transition-all flex items-center justify-center gap-1.5"
           >
-            Publier
+            <MessageSquare className="w-3.5 h-3.5" />
+            <span>Publier dans le Livre</span>
           </button>
         </div>
       </div>
-
     </div>
   );
 };
@@ -1796,124 +1623,277 @@ const VotePage = () => {
 const OrganizerAdminModal = ({ isOpen, onClose, registeredGuests, maxCapacity }) => {
   if (!isOpen) return null;
 
+  const [adminTab, setAdminTab] = useState('inscriptions'); // 'inscriptions' | 'votes' | 'livre'
+
+  const storedVotesList = useMemo(() => {
+    try {
+      return JSON.parse(localStorage.getItem('vinododo_votes_list') || '[]');
+    } catch {
+      return [];
+    }
+  }, [isOpen]);
+
+  const storedGuestbookList = useMemo(() => {
+    try {
+      return JSON.parse(localStorage.getItem('vinododo_guestbook_list') || '[]');
+    } catch {
+      return [];
+    }
+  }, [isOpen]);
+
   const totalGuests = registeredGuests.reduce((acc, g) => acc + (g.guestsCount || 1), 0);
   const totalBottles = registeredGuests.reduce((acc, g) => acc + (g.takeBottle ? (g.bottleCount || 1) : 0), 0);
   const totalRevenue = registeredGuests.reduce((acc, g) => acc + (g.totalPrice || 0), 0);
 
-  const exportCSV = () => {
+  const exportCSVInscrits = () => {
     const headers = "Nom,Email,Telephone,Convives,Regime,Bouteilles,Total_EUR\n";
     const rows = registeredGuests.map(g => 
       `"${g.firstName} ${g.lastName}","${g.email}","${g.phone}",${g.guestsCount || 1},"${g.dietary}",${g.takeBottle ? g.bottleCount : 0},${g.totalPrice}`
     ).join("\n");
-
     const blob = new Blob([headers + rows], { type: "text/csv;charset=utf-8;" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = `chez-vino-et-dodo-inscrits-${new Date().toISOString().slice(0, 10)}.csv`;
+    link.download = `vino-dodo-inscrits.csv`;
+    link.click();
+  };
+
+  const exportCSVVotes = () => {
+    const headers = "Date,Convive,Email,Vin_Coup_de_Coeur,Domaine,Region\n";
+    const rows = storedVotesList.map(v => 
+      `"${v.timestamp}","${v.userName}","${v.userEmail}","${v.votedWineName || ''}","${v.votedDomain || ''}","${v.votedRegion || ''}"`
+    ).join("\n");
+    const blob = new Blob([headers + rows], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `vino-dodo-votes-coup-de-coeur.csv`;
+    link.click();
+  };
+
+  const exportCSVLivre = () => {
+    const headers = "Date,Auteur,Email,Vin_Associe,Message\n";
+    const rows = storedGuestbookList.map(m => 
+      `"${m.timestamp}","${m.userName}","${m.userEmail}","${m.votedWineName || ''}","${(m.comment || '').replace(/"/g, '""')}"`
+    ).join("\n");
+    const blob = new Blob([headers + rows], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `vino-dodo-livre-de-cave.csv`;
     link.click();
   };
 
   return (
     <div className="fixed inset-0 z-50 bg-charcoal/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-cream border border-beige rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl">
+      <div className="bg-cream border border-beige rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl">
         
         <div className="flex items-center justify-between pb-4 border-b border-beige">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-3">
             <SlidersHorizontal className="w-5 h-5 text-bordeaux" />
-            <h3 className="font-serif-display text-2xl text-charcoal font-semibold">
-              Vue Hôtes · Vino & Dodo
-            </h3>
+            <div>
+              <h3 className="font-serif-display text-2xl text-charcoal font-semibold">
+                Espace Hôtes · Vino & Dodo
+              </h3>
+              <span className="text-xs text-taupe">Miroir de vos 3 onglets Google Sheets</span>
+            </div>
           </div>
-          <button 
-            onClick={onClose}
-            className="p-1 rounded-full text-taupe hover:text-charcoal"
-          >
+          <button onClick={onClose} className="p-1 rounded-full text-taupe hover:text-charcoal">
             <X className="w-6 h-6" />
           </button>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-6">
-          <div className="p-4 rounded-xl bg-cream-deep/50 border border-beige">
-            <span className="text-[10px] uppercase tracking-wider text-taupe font-semibold block">Convives</span>
-            <span className="font-serif-display text-2xl text-charcoal font-bold">{totalGuests} / {maxCapacity}</span>
-          </div>
-          <div className="p-4 rounded-xl bg-cream-deep/50 border border-beige">
-            <span className="text-[10px] uppercase tracking-wider text-taupe font-semibold block">Bouteilles à prévoir</span>
-            <span className="font-serif-display text-2xl text-charcoal font-bold">{totalBottles}</span>
-          </div>
-          <div className="p-4 rounded-xl bg-cream-deep/50 border border-beige">
-            <span className="text-[10px] uppercase tracking-wider text-taupe font-semibold block">Budget Collecté</span>
-            <span className="font-serif-display text-2xl text-bordeaux font-bold">{totalRevenue} €</span>
-          </div>
-          <div className="p-4 rounded-xl bg-cream-deep/50 border border-beige">
-            <span className="text-[10px] uppercase tracking-wider text-taupe font-semibold block">Destination</span>
-            <span className="text-xs text-emerald-800 font-medium block mt-1">Google Sheets</span>
-          </div>
-        </div>
-
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs uppercase tracking-widest text-brass font-semibold">
-              Liste des Inscrits ({registeredGuests.length})
-            </span>
-            <button
-              onClick={exportCSV}
-              className="text-xs text-bordeaux hover:underline flex items-center gap-1"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Exporter en CSV</span>
-            </button>
-          </div>
-
-          <div className="border border-beige rounded-xl overflow-hidden bg-cream">
-            <table className="w-full text-left text-xs text-charcoal">
-              <thead className="bg-cream-deep/60 border-b border-beige text-taupe font-semibold">
-                <tr>
-                  <th className="p-3">Invité</th>
-                  <th className="p-3">Contact</th>
-                  <th className="p-3">Régime</th>
-                  <th className="p-3 text-center">Bouteilles</th>
-                  <th className="p-3 text-right">Montant</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-beige/60">
-                {registeredGuests.map((g, idx) => (
-                  <tr key={idx} className="hover:bg-cream-deep/30">
-                    <td className="p-3 font-medium">
-                      {g.firstName} {g.lastName}
-                      {g.hasPlusOne && <span className="text-[10px] text-taupe block">+1 : {g.plusOneName || 'Invité'}</span>}
-                    </td>
-                    <td className="p-3 text-taupe">
-                      <div>{g.email}</div>
-                      <div className="text-[10px]">{g.phone}</div>
-                    </td>
-                    <td className="p-3">
-                      <span className="px-2 py-0.5 rounded bg-cream-deep text-[10px] border border-beige">
-                        {g.dietary}
-                      </span>
-                    </td>
-                    <td className="p-3 text-center font-mono">
-                      {g.takeBottle ? `${g.bottleCount}` : '0'}
-                    </td>
-                    <td className="p-3 text-right font-mono font-semibold">
-                      {g.totalPrice} €
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="mt-6 pt-4 border-t border-beige flex justify-end">
+        {/* 3 Onglets Admin */}
+        <div className="flex flex-wrap gap-2 my-4 border-b border-beige pb-3">
           <button
-            onClick={onClose}
-            className="px-6 py-2.5 rounded-full bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider"
+            onClick={() => setAdminTab('inscriptions')}
+            className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
+              adminTab === 'inscriptions' ? 'bg-bordeaux text-cream' : 'bg-cream-deep/60 text-taupe hover:text-charcoal'
+            }`}
           >
-            Fermer le panneau
+            1. Inscriptions ({registeredGuests.length})
+          </button>
+
+          <button
+            onClick={() => setAdminTab('votes')}
+            className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+              adminTab === 'votes' ? 'bg-bordeaux text-cream' : 'bg-cream-deep/60 text-taupe hover:text-charcoal'
+            }`}
+          >
+            <Heart className="w-3.5 h-3.5" />
+            <span>2. Votes Coup de Cœur ({storedVotesList.length})</span>
+          </button>
+
+          <button
+            onClick={() => setAdminTab('livre')}
+            className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+              adminTab === 'livre' ? 'bg-bordeaux text-cream' : 'bg-cream-deep/60 text-taupe hover:text-charcoal'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>3. Livre de Cave ({storedGuestbookList.length})</span>
           </button>
         </div>
 
+        {/* ONGLET 1 : INSCRIPTIONS */}
+        {adminTab === 'inscriptions' && (
+          <div className="space-y-6 animate-fade-in">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="p-4 rounded-xl bg-cream-deep/50 border border-beige">
+                <span className="text-[10px] uppercase tracking-wider text-taupe font-semibold block">Convives</span>
+                <span className="font-serif-display text-2xl text-charcoal font-bold">{totalGuests} / {maxCapacity}</span>
+              </div>
+              <div className="p-4 rounded-xl bg-cream-deep/50 border border-beige">
+                <span className="text-[10px] uppercase tracking-wider text-taupe font-semibold block">Bouteilles à prévoir</span>
+                <span className="font-serif-display text-2xl text-charcoal font-bold">{totalBottles}</span>
+              </div>
+              <div className="p-4 rounded-xl bg-cream-deep/50 border border-beige">
+                <span className="text-[10px] uppercase tracking-wider text-taupe font-semibold block">Cagnotte</span>
+                <span className="font-serif-display text-2xl text-bordeaux font-bold">{totalRevenue} €</span>
+              </div>
+              <div className="p-4 rounded-xl bg-cream-deep/50 border border-beige">
+                <span className="text-[10px] uppercase tracking-wider text-taupe font-semibold block">Onglet Google</span>
+                <span className="text-xs text-emerald-800 font-medium block mt-1">« Inscriptions »</span>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs uppercase tracking-widest text-brass font-semibold">
+                  Convives enregistrés ({registeredGuests.length})
+                </span>
+                <button onClick={exportCSVInscrits} className="text-xs text-bordeaux hover:underline flex items-center gap-1 font-semibold">
+                  <Download className="w-3.5 h-3.5" /> <span>Exporter CSV</span>
+                </button>
+              </div>
+
+              <div className="border border-beige rounded-xl overflow-hidden bg-cream">
+                <table className="w-full text-left text-xs text-charcoal">
+                  <thead className="bg-cream-deep/60 border-b border-beige text-taupe font-semibold">
+                    <tr>
+                      <th className="p-3">Invité</th>
+                      <th className="p-3">Contact</th>
+                      <th className="p-3">Régime</th>
+                      <th className="p-3 text-center">Bouteilles</th>
+                      <th className="p-3 text-right">Montant</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-beige/60">
+                    {registeredGuests.map((g, idx) => (
+                      <tr key={idx} className="hover:bg-cream-deep/30">
+                        <td className="p-3 font-medium">
+                          {g.firstName} {g.lastName}
+                          {g.hasPlusOne && <span className="text-[10px] text-taupe block">+1 : {g.plusOneName || 'Invité'}</span>}
+                        </td>
+                        <td className="p-3 text-taupe">
+                          <div>{g.email}</div>
+                          <div className="text-[10px] font-mono">{g.phone}</div>
+                        </td>
+                        <td className="p-3">
+                          <span className="px-2 py-0.5 rounded bg-cream-deep text-[10px] border border-beige">
+                            {g.dietary}
+                          </span>
+                        </td>
+                        <td className="p-3 text-center font-mono">{g.takeBottle ? `${g.bottleCount}` : '0'}</td>
+                        <td className="p-3 text-right font-mono font-semibold">{g.totalPrice} €</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ONGLET 2 : VOTES COUP DE CŒUR */}
+        {adminTab === 'votes' && (
+          <div className="space-y-6 animate-fade-in">
+            <div className="flex items-center justify-between">
+              <span className="text-xs uppercase tracking-widest text-brass font-semibold">
+                Votes transmis vers l'onglet « Votes Coup de Cœur » ({storedVotesList.length})
+              </span>
+              <button onClick={exportCSVVotes} className="text-xs text-bordeaux hover:underline flex items-center gap-1 font-semibold">
+                <Download className="w-3.5 h-3.5" /> <span>Exporter CSV</span>
+              </button>
+            </div>
+
+            {storedVotesList.length === 0 ? (
+              <div className="p-8 text-center bg-cream-deep/30 border border-beige rounded-xl text-taupe text-xs">
+                Aucun vote coup de cœur enregistré pour le moment.
+              </div>
+            ) : (
+              <div className="border border-beige rounded-xl overflow-hidden bg-cream">
+                <table className="w-full text-left text-xs text-charcoal">
+                  <thead className="bg-cream-deep/60 border-b border-beige text-taupe font-semibold">
+                    <tr>
+                      <th className="p-3">Date</th>
+                      <th className="p-3">Convive</th>
+                      <th className="p-3">Vin Coup de Cœur</th>
+                      <th className="p-3">Domaine & Région</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-beige/60">
+                    {storedVotesList.map((v, idx) => (
+                      <tr key={idx} className="hover:bg-cream-deep/30">
+                        <td className="p-3 text-taupe font-mono text-[10px]">{v.timestamp?.split(' ')[0]}</td>
+                        <td className="p-3 font-semibold text-charcoal">{v.userName}</td>
+                        <td className="p-3 text-bordeaux font-medium">🍷 {v.votedWineName}</td>
+                        <td className="p-3 text-taupe">{v.votedDomain} {v.votedRegion && `· ${v.votedRegion}`}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ONGLET 3 : LIVRE DE CAVE */}
+        {adminTab === 'livre' && (
+          <div className="space-y-6 animate-fade-in">
+            <div className="flex items-center justify-between">
+              <span className="text-xs uppercase tracking-widest text-brass font-semibold">
+                Mots transmis vers l'onglet « Livre de Cave » ({storedGuestbookList.length})
+              </span>
+              <button onClick={exportCSVLivre} className="text-xs text-bordeaux hover:underline flex items-center gap-1 font-semibold">
+                <Download className="w-3.5 h-3.5" /> <span>Exporter CSV</span>
+              </button>
+            </div>
+
+            {storedGuestbookList.length === 0 ? (
+              <div className="p-8 text-center bg-cream-deep/30 border border-beige rounded-xl text-taupe text-xs">
+                Aucun mot doux déposé pour l'instant dans le Livre de Cave.
+              </div>
+            ) : (
+              <div className="border border-beige rounded-xl overflow-hidden bg-cream">
+                <table className="w-full text-left text-xs text-charcoal">
+                  <thead className="bg-cream-deep/60 border-b border-beige text-taupe font-semibold">
+                    <tr>
+                      <th className="p-3">Date</th>
+                      <th className="p-3">Auteur</th>
+                      <th className="p-3">Vin associé</th>
+                      <th className="p-3">Message du convive</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-beige/60">
+                    {storedGuestbookList.map((m, idx) => (
+                      <tr key={idx} className="hover:bg-cream-deep/30">
+                        <td className="p-3 text-taupe font-mono text-[10px]">{m.timestamp?.split(' ')[0]}</td>
+                        <td className="p-3 font-semibold text-charcoal">{m.userName}</td>
+                        <td className="p-3 text-taupe text-[11px]">{m.votedWineName || 'Général'}</td>
+                        <td className="p-3 text-charcoal font-medium italic">« {m.comment} »</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className="mt-6 pt-4 border-t border-beige flex justify-between items-center text-xs text-taupe">
+          <span>Ces données s'enregistrent simultanément dans vos 3 onglets Google Sheets.</span>
+          <button onClick={onClose} className="px-6 py-2.5 rounded-full bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider">
+            Fermer
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -1929,38 +1909,47 @@ export default function App() {
     }
   });
 
-  const [activePage, setActivePage] = useState('home'); // 'home' | 'degustation' | 'vote' | 'inscription'
+  const [activePage, setActivePage] = useState('home');
   const [activeWineIndex, setActiveWineIndex] = useState(0);
   const [showAdminModal, setShowAdminModal] = useState(false);
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
 
-  const [registeredGuests, setRegisteredGuests] = useState([
-    {
-      firstName: "Maxime",
-      lastName: "Dubois",
-      email: "maxime.d@example.com",
-      phone: "+32 471 22 33 44",
-      hasPlusOne: true,
-      plusOneName: "Camille",
-      dietary: "aucun",
-      takeBottle: true,
-      bottleCount: 1,
-      guestsCount: 2,
-      totalPrice: 50
-    },
-    {
-      firstName: "Sophie",
-      lastName: "Lambert",
-      email: "sophie.l@example.com",
-      phone: "+32 478 99 88 77",
-      hasPlusOne: false,
-      plusOneName: "",
-      dietary: "vegetarien",
-      takeBottle: false,
-      bottleCount: 0,
-      guestsCount: 1,
-      totalPrice: 20
+  const [registeredGuests, setRegisteredGuests] = useState(() => {
+    try {
+      const local = JSON.parse(localStorage.getItem('vinododo_registrations') || '[]');
+      if (local.length > 0) return local;
+    } catch (e) {
+      console.warn(e);
     }
-  ]);
+    return [
+      {
+        firstName: "Maxime",
+        lastName: "Dubois",
+        email: "maxime.d@example.com",
+        phone: "+32 471 22 33 44",
+        hasPlusOne: true,
+        plusOneName: "Camille",
+        dietary: "aucun",
+        takeBottle: true,
+        bottleCount: 1,
+        guestsCount: 2,
+        totalPrice: 50
+      },
+      {
+        firstName: "Sophie",
+        lastName: "Lambert",
+        email: "sophie.l@example.com",
+        phone: "+32 478 99 88 77",
+        hasPlusOne: false,
+        plusOneName: "",
+        dietary: "vegetarien",
+        takeBottle: false,
+        bottleCount: 0,
+        guestsCount: 1,
+        totalPrice: 20
+      }
+    ];
+  });
 
   const totalRegisteredCount = useMemo(() => {
     return registeredGuests.reduce((sum, g) => sum + (g.guestsCount || 1), 0);
@@ -1971,7 +1960,7 @@ export default function App() {
     try {
       localStorage.setItem('vinododo_current_user', JSON.stringify(user));
     } catch (e) {
-      console.warn("Storage warning:", e);
+      console.warn(e);
     }
     setActivePage('home');
   };
@@ -1981,7 +1970,7 @@ export default function App() {
     try {
       localStorage.removeItem('vinododo_current_user');
     } catch (e) {
-      console.warn("Storage warning:", e);
+      console.warn(e);
     }
   };
 
@@ -1989,7 +1978,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activePage]);
 
-  // If user is not yet logged in or registered, show the personalized welcome gate
   if (!currentUser) {
     return (
       <div className="min-h-screen bg-cream selection:bg-bordeaux-subtle selection:text-bordeaux">
@@ -2035,7 +2023,10 @@ export default function App() {
           )}
 
           {activePage === 'vote' && (
-            <VotePage />
+            <VotePage 
+              currentUser={currentUser}
+              onNewDataRecorded={() => setRefreshTrigger(prev => prev + 1)}
+            />
           )}
 
           {activePage === 'inscription' && (
@@ -2046,19 +2037,6 @@ export default function App() {
                 <p className="text-xs text-taupe">
                   Vous êtes déjà enregistré sous l'adresse <strong>{currentUser.email || currentUser.name}</strong>.
                 </p>
-                <div className="p-4 rounded-xl bg-cream-deep text-left text-xs space-y-2 border border-beige">
-                  <div className="flex justify-between">
-                    <span>Participation soirée :</span>
-                    <strong>{EVENT_DATA.pricePerPerson} €</strong>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Paiement :</span>
-                    <span className="font-mono">{EVENT_DATA.paymentInfo.iban}</span>
-                  </div>
-                  <div className="text-[11px] text-taupe pt-1 border-t border-beige">
-                    Communication : <code>{currentUser.firstName?.toUpperCase()} - CHARDONNAY 16/10</code>
-                  </div>
-                </div>
                 <button
                   onClick={() => setActivePage('degustation')}
                   className="px-6 py-2.5 rounded-full bg-bordeaux text-cream text-xs font-semibold uppercase tracking-wider"
@@ -2071,10 +2049,7 @@ export default function App() {
         </main>
       </div>
 
-      <MobileBottomBar
-        activePage={activePage}
-        setActivePage={setActivePage}
-      />
+      <MobileBottomBar activePage={activePage} setActivePage={setActivePage} />
 
       <OrganizerAdminModal
         isOpen={showAdminModal}
@@ -2089,16 +2064,11 @@ export default function App() {
           <span>·</span>
           <span className="italic font-normal">Dégustation {EVENT_DATA.year}</span>
         </div>
-        
-        <p className="max-w-md mx-auto leading-relaxed">
-          Une initiative privée organisée avec passion à Ottignies-Louvain-la-Neuve.
-          L'abus d'alcool est dangereux pour la santé, à consommer avec modération.
-        </p>
 
         <div className="flex items-center justify-center space-x-6 text-taupe pt-2">
           <button onClick={() => setActivePage('home')} className="hover:text-charcoal">Accueil</button>
           <button onClick={() => setActivePage('degustation')} className="hover:text-charcoal">Les 5 Vins</button>
-          <button onClick={() => setActivePage('vote')} className="hover:text-charcoal">Vote</button>
+          <button onClick={() => setActivePage('vote')} className="hover:text-charcoal">Vote & Avis</button>
           <button 
             onClick={() => setShowAdminModal(true)}
             className="hover:text-bordeaux flex items-center gap-1 font-medium"
@@ -2108,7 +2078,6 @@ export default function App() {
           </button>
         </div>
       </footer>
-
     </div>
   );
 }
